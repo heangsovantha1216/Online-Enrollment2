@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ថ្ងៃខែឆ្នាំកំណើត (Date of Birth Picker)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Khmer+Handwritten&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    body {
+      font-family: 'Khmer Handwritten', sans-serif;
+      background: linear-gradient(120deg, #f0f2f5 0%, #e3e9f7 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .date-input-container {
+      background: #fff;
+      padding: 28px 32px;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    .date-input-container label {
+      font-size: 1.25em;
+      color: #2d3a4a;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .date-fields {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .date-fields input[type="text"],
+    .date-fields select {
+      padding: 10px 8px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1.1em;
+      background: #f9fafb;
+      color: #222;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      cursor: pointer;
+    }
+    .date-fields input[type="text"] {
+      width: 60px;
+      text-align: center;
+    }
+    .date-fields #year {
+      width: 80px;
+    }
+    .calendar-icon {
+      background: linear-gradient(120deg, #f5f7fa 0%, #e9eff7 100%);
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-size: 1.3em;
+      color: #4a5a6a;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .calendar-icon:hover {
+      background: #e0e7ef;
+      border-color: #a0aec0;
+      color: #1a202c;
+    }
+    .calendar-icon:active {
+      background: #d1d9e6;
+    }
+    @media (max-width: 600px) {
+      .date-input-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 18px 10px;
+      }
+      .date-fields {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+      }
+      .date-fields input[type="text"], .date-fields #year, .date-fields select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="date-input-container">
+    <label for="dob">ថ្ងៃខែឆ្នាំកំណើត</label>
+    <div class="date-fields" id="date-fields-wrap">
+      <input type="text" id="day" name="day" placeholder="ថ្ងៃ" maxlength="2">
+      <select id="month" name="month">
+        <option value="">-- ខែ --</option>
+        <option value="01">មករា</option>
+        <option value="02">កុម្ភៈ</option>
+        <option value="03">មីនា</option>
+        <option value="04">មេសា</option>
+        <option value="05">ឧសភា</option>
+        <option value="06">មិថុនា</option>
+        <option value="07">កក្កដា</option>
+        <option value="08">សីហា</option>
+        <option value="09">កញ្ញា</option>
+        <option value="10">តុលា</option>
+        <option value="11">វិច្ឆិកា</option>
+        <option value="12">ធ្នូ</option>
+      </select>
+      <input type="text" id="year" name="year" placeholder="ឆ្នាំ" maxlength="4">
+      <input type="hidden" id="flatpickr-input" data-input>
+      <button class="calendar-icon" aria-label="Open calendar" data-toggle>📅</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+  <script>
+    // Khmer locale
+    flatpickr.localize({
+      weekdays: {
+        shorthand: ['អា', 'ច', 'អ', 'ពុ', 'ព្រ', 'សុ', 'សៅ'],
+        longhand: [
+          'អាទិត្យ', 'ច័ន្ទ', 'អង្គារ', 'ពុធ',
+          'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'
+        ]
+      },
+      months: {
+        shorthand: ['មក', 'កុ', 'មី', 'មេ', 'ឧ', 'មិ', 'កក', 'សី', 'កញ', 'តុ', 'វិ', 'ធ្'],
+        longhand: [
+          'មករា', 'កុម្ភៈ', 'មីនា', 'មេសា',
+          'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា',
+          'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'
+        ]
+      },
+      firstDayOfWeek: 1,
+      time_24hr: true
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const fp = flatpickr("#date-fields-wrap", {
+        dateFormat: "Y-m-d",
+        wrap: true,
+        allowInput: false,
+        appendTo: document.body,
+        maxDate: "today",
+        locale: "km",
+        onReady: function (selectedDates) {
+          if (selectedDates.length > 0) setFields(selectedDates[0]);
+        },
+        onChange: function (selectedDates) {
+          if (selectedDates.length > 0) setFields(selectedDates[0]);
+          else clearFields();
+        }
+      });
+
+      function setFields(date) {
+        document.getElementById('day').value = String(date.getDate()).padStart(2, '0');
+        document.getElementById('month').value = String(date.getMonth() + 1).padStart(2, '0');
+        document.getElementById('year').value = date.getFullYear();
+      }
+
+      function clearFields() {
+        document.getElementById('day').value = '';
+        document.getElementById('month').value = '';
+        document.getElementById('year').value = '';
+      }
+
+      function updateFlatpickrFromFields() {
+        const day = document.getElementById('day').value.padStart(2, '0');
+        const month = document.getElementById('month').value;
+        const year = document.getElementById('year').value;
+        if (day && month && year && /^\d{4}$/.test(year)) {
+          const dateStr = `${year}-${month}-${day}`;
+          const dateObj = new Date(dateStr);
+          if (!isNaN(dateObj) && dateObj <= new Date()) {
+            fp.setDate(dateStr, true);
+          }
+        }
+      }
+
+      ['day', 'month', 'year'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateFlatpickrFromFields);
+        document.getElementById(id).addEventListener('change', updateFlatpickrFromFields);
+      });
+    });
+  </script>
+</body>
+</html>

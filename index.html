@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/login.css">
+
+  <title>Login</title>
+</head>
+<body>
+  <header></header>
+  <img src="assets/img/LOGO.png" alt="Logo">
+
+  <div class="form-container">
+    <form action="login.php" method="post" class="border1">
+        <label for="username">ឈ្មោះអ្នកប្រើប្រាស់:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">ពាក្យសម្ងាត់:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" id="submit">ចូលគណនី</button>   
+        <button type="button" onclick="window.location.href='register.html'">បង្កើតគណនី</button>
+
+        <a href="resetpass.html">ភ្លេចពាក្យសម្ងាត់?</a>
+    </form>
+
+  </div>
+  <footer></footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Khmer';
+    font-size: 16px;
+}
+@font-face {
+    font-family: 'Khmer';
+    src: url('../fon/!KHMEROSSIEMREAP.TTF') format('truetype');
+}
+
+body {
+    background: linear-gradient(135deg, #e3eafe 0%, #f2f2f2 100%);
+    min-height: 100vh;
+}
+
+.header {
+    background: #4d6aff;
+    padding: 10px 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 20px 20px 0 0;
+    margin: 60px auto 0 auto;
+    width: 90%;
+    max-width: 500px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 16px rgba(77, 106, 255, 0.15);
+}
+
+.form-container {
+    background: #ffffff;
+    border-radius: 0 0 20px 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(77, 106, 255, 0.08);
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="file"] {
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: calc(100% - 10px);
+    font-size: 1rem;
+    transition: border 0.2s;
+    background: #f8faff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="file"]:focus {
+    border-color: #4d6aff;
+    outline: none;
+}
+.date-gender-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.date-group input[type="text"],
+.date-group select {
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: calc(100% - 10px);
+    font-size: 1rem;
+    transition: border 0.2s;
+    background: #f8faff;
+}
+.date-group {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+.date-group input {
+    flex: 1;
+    min-width: 0;
+}
+
+.gender-group {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: #545151;
+}
+
+.photo-upload {
+    width: 150px;
+    height: 200px;
+    border: 2px dashed #4d6aff;
+    background: #f8faff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #4d6aff;
+    margin-right: 24px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    transition: border-color 0.2s;
+}
+
+.photo-upload:hover {
+    border-color: #2e3e99;
+}
+
+.photo-upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.btns button {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(77, 106, 255, 0.08);
+}
+
+.btn-cancel {
+    background-color: #b0b8ff;
+}
+
+.btn-cancel:hover {
+    background-color: #7a8cff;
+}
+
+.btn-submit {
+    background-color: #4d6aff;
+}
+
+.btn-submit:hover {
+    background-color: #2e3e99;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    .header,
+    .form-container {
+        width: 98%;
+        max-width: 98%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group input[type="file"] {
+        width: 100%;
+    }
+    .btns {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .photo-upload {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+}
